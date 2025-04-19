@@ -17,6 +17,8 @@ public class SecurityConfig {
 	SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception{
 		
 		http.authorizeHttpRequests((requests) -> requests
+				// This permit to contact
+				
 				.requestMatchers("/contact").permitAll()
 				.anyRequest()
 				.authenticated());
