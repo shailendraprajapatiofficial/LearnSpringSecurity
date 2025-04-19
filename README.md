@@ -1,4 +1,8 @@
 # LearnSpringSecurity
+
+Principal represents the currently logged-in user. Your user details (like your username or email) become
+your principal.
+Authentication Object is a more comprehensive representation of the user's authentication information.
                                                      Key Filter 
                                                      
 SecurityContextPersistenceFilter
