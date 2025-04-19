@@ -19,13 +19,14 @@ public class SecurityConfig {
 		http.authorizeHttpRequests((requests) -> requests
 				// This permit to contact
 				
-				.requestMatchers("/contact").permitAll()
+				//.requestMatchers("/contact").permitAll()
 				.anyRequest()
 				.authenticated());
+		http.csrf(csrf -> csrf.disable());
 		//http.formLogin(withDefaults());
 		http.httpBasic(withDefaults());
 		// This will hide the cookies
-		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+		//http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		
 		return http.build();
 		
