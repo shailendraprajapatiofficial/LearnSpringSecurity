@@ -65,6 +65,19 @@ FilterSecurityInterceptor
 -> Enforces security policies (authorization checks) on secured HTTP requests. It make final access control decisions based on configured security metadata and the current Authentication.
 -> class : org.springframework.security.web.access.intercept.FilterSecurityInterceptor
 
+1. HTTP request comes in (Postman, browser, etc.)
+2. Hits Spring Security's filter chain (e.g., BasicAuthenticationFilter)
+3. Filter extracts username & password
+4. Creates an Authentication object (unauthenticated)
+5. ➡️ Calls: authenticationManager.authenticate(authRequest)  ← 🟩 YOU ARE HERE
+6. Inside: ProviderManager calls DaoAuthenticationProvider
+7. Loads user from UserDetailsService
+8. Validates password
+9. If correct → returns authenticated token
+10. Stores user in SecurityContextHolder
+11. Controller uses @AuthenticationPrincipal to access the user
+
+
 
 
 
