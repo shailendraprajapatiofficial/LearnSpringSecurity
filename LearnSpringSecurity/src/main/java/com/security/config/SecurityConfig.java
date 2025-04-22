@@ -9,8 +9,11 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -35,13 +38,15 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	public UserDetailsService userDetailsService() {
-		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+	public UserDetailsService userDetailsService(DataSource dataSource) {
+//		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 		
 //		if (!manager.userExists("user1")) {
 //			manager.createUser(User.withUsername("user1").password("{noop}password").roles("USER").build());
 //
 //		}
+		
+		JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
 		
 		//Alternate way 
 		
