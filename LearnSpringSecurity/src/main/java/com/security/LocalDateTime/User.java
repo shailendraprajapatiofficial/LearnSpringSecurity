@@ -90,11 +90,11 @@ public class User {
 	}
 
 	public String getSignUpMethod() {
-		return signUpMothod;
+		return signUpMethod;
 	}
 
 	public void setSignUpMethod(String signUpMethod) {
-		this.signUpMothod = signUpMethod;
+		this.signUpMethod = signUpMethod;
 	}
 
 	public LocalDateTime getCreatedDate() {
@@ -198,7 +198,7 @@ public class User {
 	
 	private String twoFactorSecret;
 	private boolean isTwoFactorEnabled = false;
-	private String signUpMothod;
+	private String signUpMethod;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})

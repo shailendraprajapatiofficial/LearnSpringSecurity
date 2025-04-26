@@ -35,6 +35,7 @@ public class SecurityConfig {
 				// This permit to contact
 
 				// .requestMatchers("/contact").permitAll()
+				//.requestMatchers("/admin").denyAll()
 				.anyRequest().authenticated());
 		http.csrf(csrf -> csrf.disable());
 		// http.formLogin(withDefaults());

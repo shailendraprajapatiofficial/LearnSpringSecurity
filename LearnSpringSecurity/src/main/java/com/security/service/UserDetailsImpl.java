@@ -27,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     // Constructor
-    public UserDetailsImpl(Long id, String username, String email, String password, boolean is2faEnabled, List<GrantedAuthority> authorities) {
+    public UserDetailsImpl(Long id, String username, String email, String password, boolean is2faEnabled,Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -118,6 +118,9 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+    
+    
+    
 
     // Equals and hashCode
     @Override
